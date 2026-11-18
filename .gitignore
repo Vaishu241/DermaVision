@@ -1,0 +1,11 @@
+HAM10000_images_part_1/
+HAM10000_images_part_2/
+dataset/
+venv/
+.venv/
+.venv_verify/
+__pycache__/
+*.pyc
+.pytest_cache/
+models/*.keras
+models/smoke_test/

@@ -1,0 +1,88 @@
+{
+    "multimodal_ensemble": {
+        "status": "Production Best (Retrained EfficientNetV2-B3 Deep Features + Patient Metadata + Multimodal Attention MLP + HistGradientBoosting + Calibrated LR)",
+        "evaluation_split": "Held-Out Test Set (1,497 Unseen Images with Lesion-Disjoint Splitting)",
+        "top1_accuracy": 0.7829,
+        "top2_accuracy": 0.9031,
+        "top3_accuracy": 0.9626,
+        "macro_f1": 0.5843,
+        "multiclass_roc_auc": 0.9224,
+        "melanoma_metrics": {
+            "sensitivity_recall": 0.4464,
+            "specificity": 0.9526,
+            "precision": 0.5435,
+            "f1_score": 0.4897
+        },
+        "ensemble_weights": {
+            "multimodal_mlp": 0.2597,
+            "hist_gradient_boosting": 0.6108,
+            "calibrated_logistic_regression": 0.1295
+        },
+        "diagnosis_note": "Achieves 96.26% Top-3 differential diagnostic accuracy and 0.9224 Multiclass ROC-AUC on the strictly lesion-partitioned HAM10000 held-out test split (1,497 images) without lesion data leakage."
+    },
+    "retrained_efficientnet": {
+        "status": "Production Retrained Backbone (5 Epochs with Balanced Class Weights & Label Smoothing)",
+        "evaluation_split": "Held-Out Test Set (1,497 Unseen Images)",
+        "top1_accuracy": 0.5424,
+        "top2_accuracy": 0.7762,
+        "top3_accuracy": 0.8985,
+        "multiclass_roc_auc": 0.8872,
+        "melanoma_metrics": {
+            "sensitivity_recall": 0.2857,
+            "specificity": 0.9412,
+            "precision": 0.3621,
+            "f1_score": 0.3193
+        }
+    },
+    "legacy_audited_checkpoints": {
+        "ensemble": {
+            "top1_accuracy": 0.1500,
+            "top3_accuracy": 0.4280,
+            "macro_f1": 0.1408,
+            "auc_roc": 0.5124,
+            "melanoma_metrics": {
+                "recall_sensitivity": 0.1000,
+                "specificity": 0.8833,
+                "precision": 0.1250,
+                "f1_score": 0.0870
+            },
+            "status": "Legacy checkpoint combination suffering from mode-collapsed submodels."
+        },
+        "convnext": {
+            "top1_accuracy": 0.1429,
+            "macro_f1": 0.0359,
+            "auc_roc": 0.4438,
+            "melanoma_metrics": {
+                "recall_sensitivity": 0.0000,
+                "specificity": 0.8571,
+                "precision": 0.0000,
+                "f1_score": 0.0000
+            },
+            "status": "Verified 1-epoch smoke-test checkpoint (identical MD5 to smoke_test/smoke_convnext.keras). Mode-collapsed into class 'bcc'."
+        },
+        "vit": {
+            "top1_accuracy": 0.1429,
+            "macro_f1": 0.0357,
+            "auc_roc": 0.4812,
+            "melanoma_metrics": {
+                "recall_sensitivity": 0.0000,
+                "specificity": 0.8571,
+                "precision": 0.0000,
+                "f1_score": 0.0000
+            },
+            "status": "Untrained ViT from scratch. Mode-collapsed into class 'bkl' with 99.4% confidence across all images."
+        },
+        "efficientnet_legacy": {
+            "top1_accuracy": 0.1429,
+            "macro_f1": 0.1225,
+            "auc_roc": 0.5281,
+            "melanoma_metrics": {
+                "recall_sensitivity": 0.1000,
+                "specificity": 0.8917,
+                "precision": 0.1333,
+                "f1_score": 0.0833
+            },
+            "status": "Suffered from input double-rescaling bug ([0, 1] input rescaled again by internal 1/255 to [0, 0.0039])."
+        }
+    }
+}

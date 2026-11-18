@@ -1,0 +1,24 @@
+# Deep Learning & Neural Networks
+tensorflow>=2.15.0
+# Optional: keras>=3.0.0 (if using standalone Keras 3)
+
+# Web Application & Interactive UI
+streamlit>=1.30.0
+plotly>=5.18.0
+
+# Numerical & Data Processing
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+
+# Computer Vision & Image Augmentation
+opencv-python-headless>=4.8.0
+pillow>=10.0.0
+
+# Visualization & Reporting
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# Testing & Utilities
+pytest>=7.4.0
+tqdm>=4.66.0

@@ -1,0 +1,10 @@
+HAM10000_images_part_1/
+HAM10000_images_part_2/
+dataset/
+venv/
+.venv/
+.git/
+__pycache__/
+*.pyc
+.pytest_cache/
+models/convnext_best.keras
