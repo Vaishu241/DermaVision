@@ -1,11 +1,60 @@
+﻿
+# ==============================
+# DATASETS
+# ==============================
 HAM10000_images_part_1/
 HAM10000_images_part_2/
 dataset/
+
+# ==============================
+# PYTHON VIRTUAL ENVIRONMENTS
+# ==============================
 venv/
 .venv/
 .venv_verify/
+env/
+
+# ==============================
+# PYTHON CACHE
+# ==============================
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+
+# ==============================
+# TESTING CACHE
+# ==============================
 .pytest_cache/
-models/*.keras
+.coverage
+htmlcov/
+
+# ==============================
+# MODEL TEMPORARY FILES
+# ==============================
 models/smoke_test/
+
+# ==============================
+# GENERATED FILES
+# ==============================
+scratch/
+.ipynb_checkpoints/
+
+# ==============================
+# IDE SETTINGS
+# ==============================
+.vscode/
+.idea/
+
+# ==============================
+# SYSTEM FILES
+# ==============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# ENVIRONMENT SECRETS
+# ==============================
+.env
+.env.*
+!.env.example
