@@ -11,57 +11,18 @@ Base Research Paper: *"Skin Cancer Detection and Classification Using Deep Learn
 
 ## 🔬 Project Overview
 
-**DermaVision** is an end-to-end computer vision and explainable AI framework designed to classify dermatoscopic skin lesions into seven distinct diagnostic categories using the **HAM10000** dataset.
+DermaVision is an end-to-end computer vision and Explainable Artificial Intelligence (XAI) framework developed to classify dermatoscopic skin lesion images into seven diagnostic categories using the HAM10000 dataset.
 
-The system incorporates a multi-model ensemble combining three complementary architectures:
-1. **EfficientNetV2-B3 with Hybrid Attention (CBAM)**: Incorporates Channel and Spatial Attention to highlight lesion boundaries and pigment networks.
-2. **ConvNeXt**: Modern convolutional backbone capturing localized inductive biases and depthwise representations.
-3. **Vision Transformer (ViT)**: Self-attention transformer capturing long-range contextual relationships and global morphology.
-4. **Weighted Ensemble**: Merges predictive probability distributions using weighted probability averaging:
-   $$P_{\text{ensemble}}(y \mid x) = w_{\text{eff}} P_{\text{eff}} + w_{\text{conv}} P_{\text{conv}} + w_{\text{vit}} P_{\text{vit}}$$
-5. **Explainable AI (Grad-CAM)**: Visualizes localized heatmaps showing anatomical regions contributing to diagnosis.
-6. **Streamlit Web Application**: An interactive clinical interface for dermatoscopic image upload and diagnostic prediction.
+The proposed system integrates three deep learning architectures: EfficientNetV2-B3 with Hybrid Attention (CBAM), ConvNeXt, and Vision Transformer (ViT) to learn complementary features from skin lesion images. EfficientNetV2-B3 with CBAM utilizes channel and spatial attention mechanisms to focus on relevant image features, while ConvNeXt captures detailed visual patterns and Vision Transformer identifies global contextual relationships through self-attention mechanisms.
+
+To improve prediction performance, a Weighted Ensemble Learning approach combines the probability outputs of all three models to generate the final classification. The system also incorporates Grad-CAM (Gradient-weighted Class Activation Mapping) for explainability by generating visual heatmaps that highlight image regions influencing the model's predictions.
+
+Additionally, DermaVision provides an interactive web-based interface developed using Streamlit, allowing users to upload dermatoscopic images and view the predicted classification along with explainability visualizations.
+
+The project aims to demonstrate the application of deep learning, ensemble learning, and explainable AI in automated skin lesion classification for academic and research purposes.
 
 ---
 
-## 📁 Project Directory Structure
-
-```text
-DermaVision/
-├── app.py                      # Streamlit interactive web application
-├── config.py                   # Central configuration (paths, hyperparameters, class labels)
-├── requirements.txt            # Python package dependencies
-├── README.md                   # Project documentation and setup guide
-│
-├── data/                       # Dataset storage
-│   ├── raw/                    # Raw HAM10000 images & metadata CSV
-│   ├── processed/              # Stratified split metadata (train/val/test)
-│   └── README.md               # Dataset download and preparation instructions
-│
-├── models/                     # Saved model weights & checkpoints
-│   ├── checkpoints/            # Intermediate training checkpoints
-│   └── README.md               # Model storage notes
-│
-├── notebooks/                  # Interactive experimentation & Colab training
-│   └── README.md               # Notebook guidelines for EDA & GPU training
-│
-├── src/                        # Core source code modules
-│   ├── __init__.py
-│   ├── preprocessing.py        # Image loading, patient-level splits & augmentation
-│   ├── train_convnext.py       # ConvNeXt model builder & training script
-│   ├── train_efficientnet.py   # EfficientNetV2-B3 + Hybrid Attention (CBAM) training
-│   ├── train_vit.py            # Vision Transformer (ViT) patch encoder & training
-│   ├── ensemble.py             # Weighted probability averaging ensemble logic
-│   ├── evaluate.py             # Metrics (F1, AUC-ROC, Accuracy) & confusion matrices
-│   └── explainability.py       # Grad-CAM heatmap generation & visualization
-│
-├── tests/                      # Unit and sanity tests
-│   ├── __init__.py
-│   └── test_config.py          # Configuration and parameter tests
-│
-└── docs/                       # Technical reports and documentation
-    └── architecture.md         # Detailed pipeline architecture & mathematical formulations
-```
 
 ---
 
@@ -85,7 +46,7 @@ DermaVision/
 
 #### Clone / Navigate to Project Directory:
 ```powershell
-cd C:\Users\muvva\.gemini\antigravity\scratch\DermaVision
+cd C:\Users\<your-username>\DermaVision
 ```
 
 #### Create and Activate Virtual Environment:
